@@ -1,0 +1,43 @@
+---
+title: Installation
+description: Add corti-ds to an existing shadcn project.
+---
+
+## Prerequisites
+
+Your project must already have shadcn initialized — meaning a `components.json` file exists at the root. If you haven't done that yet, follow the [shadcn installation guide](https://ui.shadcn.com/docs/installation) first.
+
+## Add the registry
+
+Open `components.json` and add corti-ds to the `registries` array:
+
+```json
+{
+  "registries": [
+    {
+      "name": "corti",
+      "url": "https://maxxdwh.github.io/corti-ds/public/r"
+    }
+  ]
+}
+```
+
+## Install a component
+
+Use the shadcn CLI with the `@corti/` prefix:
+
+```bash
+npx shadcn@latest add @corti/button
+```
+
+The component source is copied into your project at `components/ui/button.tsx`, exactly as it would be with a direct shadcn install.
+
+## Install a theme
+
+Themes are registry items too:
+
+```bash
+npx shadcn@latest add @corti/theme-console
+```
+
+See the [Themes](/themes/overview) section for what each theme provides.
