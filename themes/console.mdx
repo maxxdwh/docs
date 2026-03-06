@@ -1,0 +1,31 @@
+---
+title: Console
+description: Monochrome, terminal-inspired theme.
+---
+
+The Console theme is a high-contrast monochrome design suited to data-dense, developer-facing interfaces. It strips color in favour of sharp typographic hierarchy.
+
+## Install
+
+```bash
+npx shadcn@latest add @corti/theme-console
+```
+
+## Variants
+
+| Variant | `data-theme` value |
+|---|---|
+| Light | `corti-console-light` |
+| Dark | `corti-console-dark` |
+
+## Apply
+
+```js
+// Light
+document.documentElement.dataset.theme = "corti-console-light"
+
+// Dark
+document.documentElement.dataset.theme = "corti-console-dark"
+```
+
+Dark variants also apply the `dark` class and `color-scheme: dark` automatically.
