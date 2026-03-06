@@ -1,0 +1,45 @@
+---
+title: Overview
+description: How Corti themes work.
+---
+
+corti-ds ships three theme suites — Console, Assistant, and Showcase — plus a shared set of semantic color tokens via `theme-core`.
+
+## How themes work
+
+Themes are applied by setting a `data-theme` attribute on `<html>`. The CSS variables for colors, radius, and typography are scoped to that attribute, so switching themes is a single DOM change.
+
+```js
+document.documentElement.dataset.theme = "corti-console-light"
+```
+
+Each theme comes in light and dark variants. Setting a dark variant also adds the `dark` class and sets `color-scheme` automatically — no separate dark mode handling needed.
+
+To return to the shadcn default (no Corti theme), remove the attribute:
+
+```js
+delete document.documentElement.dataset.theme
+```
+
+## Available themes
+
+| Theme value | Suite |
+|---|---|
+| `corti-console-light` | Console |
+| `corti-console-dark` | Console |
+| `corti-assistant-light` | Assistant |
+| `corti-assistant-dark` | Assistant |
+| `corti-showcase-light` | Showcase |
+| `corti-showcase-dark` | Showcase |
+
+## theme-core
+
+`theme-core` provides semantic CSS variables shared across all Corti themes — success, warning, error, and info color tokens. Install it alongside any theme:
+
+```bash
+npx shadcn@latest add @corti/theme-core
+```
+
+## Theme Switcher
+
+The [`theme-switcher`](/themes/theme-switcher) component is a ready-made dropdown that handles theme selection and persistence for you.
