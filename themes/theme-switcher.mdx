@@ -1,0 +1,49 @@
+---
+title: Theme Switcher
+description: A dropdown component for switching Corti themes at runtime.
+---
+
+`CortiThemeSwitcher` is a ready-made dropdown that handles theme selection, application, and persistence. Drop it anywhere in your app.
+
+## Install
+
+```bash
+npx shadcn@latest add @corti/theme-switcher
+```
+
+## Usage
+
+```tsx
+import { CortiThemeSwitcher } from "@/components/ui/corti-theme-switcher"
+
+export function App() {
+  return (
+    <div>
+      <CortiThemeSwitcher />
+    </div>
+  )
+}
+```
+
+## How it works
+
+- Renders a `<Select>` with all seven theme options plus **Shadcn Default**
+- On mount, reads the current `data-theme` attribute or falls back to `localStorage`
+- On change, sets `data-theme` on `<html>`, toggles the `dark` class, sets `color-scheme`, and persists to `localStorage` under the key `corti-theme`
+- Selecting **Shadcn Default** removes the `data-theme` attribute entirely and resets dark mode
+
+## Manual theme switching
+
+If you want to apply themes without the component:
+
+```js
+// Apply a theme
+document.documentElement.dataset.theme = "corti-console-dark"
+document.documentElement.classList.add("dark")
+document.documentElement.style.colorScheme = "dark"
+
+// Reset to shadcn default
+delete document.documentElement.dataset.theme
+document.documentElement.classList.remove("dark")
+document.documentElement.style.colorScheme = "light"
+```
